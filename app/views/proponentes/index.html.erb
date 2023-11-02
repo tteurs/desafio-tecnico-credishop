@@ -1,0 +1,54 @@
+<h1>Proponentes</h1>
+
+<table class="table table-striped table-hover table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Cpf</th>
+      <th scope="col">Data nascimento</th>
+      <th scope="col">Logradouro</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Cep</th>
+      <th scope="col">Telefone pessoal</th>
+      <th scope="col">Telefone referencia</th>
+      <th scope="col">Salario</th>
+      <th colspan="3" scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proponentes.each do |proponente| %>
+      <tr>
+        <td><%= proponente.nome %></td>
+        <td><%= proponente.cpf %></td>
+        <td><%= proponente.data_nascimento %></td>
+        <td><%= proponente.logradouro %></td>
+        <td><%= proponente.numero %></td>
+        <td><%= proponente.bairro %></td>
+        <td><%= proponente.cidade %></td>
+        <td><%= proponente.estado %></td>
+        <td><%= proponente.cep %></td>
+        <td><%= proponente.telefone_pessoal %></td>
+        <td><%= proponente.telefone_referencia %></td>
+        <td><%= proponente.salario %></td>
+        <td><%= link_to 'Show', proponente %></td>
+        <td><%= link_to 'Edit', edit_proponente_path(proponente) %></td>
+        <td><%= link_to 'Destroy', proponente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+    <%= paginate @proponentes %>
+  </div>
+</div>
+
+
+<br>
+<%= link_to 'New Proponente', new_proponente_path %>
+<%= link_to "Relatório de Funcionários", relatorio_funcionarios_proponentes_path %>

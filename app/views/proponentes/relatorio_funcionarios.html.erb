@@ -1,0 +1,22 @@
+<h1>Relatório de Funcionários</h1>
+
+<h2>Gráfico de Funcionários por Faixa Salarial</h2>
+<%= column_chart @funcionarios_por_faixa %>
+
+<h2>Listagem de Funcionários por Faixa Salarial</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Faixa Salarial</th>
+      <th>Quantidade de Funcionários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @funcionarios_por_faixa.each do |faixa, quantidade| %>
+      <tr>
+        <td><%= faixa %></td>
+        <td><%= quantidade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

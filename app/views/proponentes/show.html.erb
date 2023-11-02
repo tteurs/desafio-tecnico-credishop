@@ -1,0 +1,30 @@
+<h1>Proponentes</h1>
+
+<dl>
+  <dt>Nome:</dt>
+  <dd><%= @proponente.nome %></dd>
+  <dt>Cpf:</dt>
+  <dd><%= @proponente.cpf %></dd>
+  <dt>Data nascimento:</dt>
+  <dd><%= @proponente.data_nascimento %></dd>
+  <dt>Logradouro:</dt>
+  <dd><%= @proponente.logradouro %></dd>
+  <dt>Numero:</dt>
+  <dd><%= @proponente.numero %></dd>
+  <dt>Bairro:</dt>
+  <dd><%= @proponente.bairro %></dd>
+  <dt>Cidade:</dt>
+  <dd><%= @proponente.cidade %></dd>
+  <dt>Estado:</dt>
+  <dd><%= @proponente.estado %></dd>
+  <dt>Cep:</dt>
+  <dd><%= @proponente.cep %></dd>
+  <dt>Telefone pessoal:</dt>
+  <dd><%= @proponente.telefone_pessoal %></dd>
+  <dt>Telefone referencia:</dt>
+  <dd><%= @proponente.telefone_referencia %></dd>
+  <dt>Salario:</dt>
+  <dd><%= @proponente.salario %></dd>
+</dl>
+<%= link_to 'Edit', edit_proponente_path(@proponente) %> |
+<%= link_to 'Back', proponentes_path %>
