@@ -42,6 +42,9 @@ gem 'font-awesome-rails'
 # gem 'simple_form'
 # gem "jquery-rails"
 # gem "sass-rails"
+# Pagination
+  gem 'kaminari'
+  # gem 'pagy'
 
 # Authentication and Authorization
 gem "devise", "~> 4.8"
@@ -92,7 +95,6 @@ group :development, :test do
   # Linters
   gem "rubocop"
   gem 'rubocop-rails', require: false
-  gem 'kaminari'
   gem "rubocop-performance", require: false
   gem "rubocop-rspec", require: false
   gem "ruby-lsp", require: false
