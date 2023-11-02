@@ -36,18 +36,24 @@ gem "sidekiq", "~> 7.2"
 gem 'sidekiq-failures'
 
 # Styles components
+# gem 'dartsass-sprockets'
+# gem 'sassc-rails'
 gem 'bootstrap', '~> 5.3.2'
 gem 'chart-js-rails'
+gem 'jquery-rails'
+gem 'bootstrap_views_generator'
 gem 'font-awesome-rails'
-# gem 'simple_form'
-# gem "jquery-rails"
-# gem "sass-rails"
+gem 'simple_form'
+# gem 'meta-tags' #SEO - rails generate meta_tags:install
+# gem 'haml-rails'
+
 # Pagination
   gem 'kaminari'
   # gem 'pagy'
 
 # Authentication and Authorization
 gem "devise", "~> 4.8"
+gem 'devise-bootstrap-views'
 # gem 'cancancan'
 
 #Admin panel

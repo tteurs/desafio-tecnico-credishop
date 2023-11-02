@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'proponentes#index'
+  devise_for :users
+  resources :proponentes do
+    collection do
+      get 'relatorio_funcionarios'
+    end
+  end
+
+  get '/calcular_inss', to: 'proponentes#calcular_inss'
 end
