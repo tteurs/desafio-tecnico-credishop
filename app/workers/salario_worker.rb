@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# SalarioWorker is a worker responsible for updating a proponente's salary
 class SalarioWorker
   include Sidekiq::Worker
 

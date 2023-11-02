@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# ProponentesController is the controller responsible for managing the CRUD of Proponente model
 class ProponentesController < ApplicationController
   before_action :set_proponente,
                 only: %i[show edit update destroy calcular_desconto_inss atualizar_salario]
