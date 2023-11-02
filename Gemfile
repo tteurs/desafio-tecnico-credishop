@@ -39,9 +39,9 @@ gem 'sidekiq-failures'
 # gem 'dartsass-sprockets'
 # gem 'sassc-rails'
 gem 'bootstrap', '~> 5.3.2'
-gem 'chart-js-rails'
 gem 'jquery-rails'
 gem 'bootstrap_views_generator'
+gem 'chartkick' # https://chartkick.com/ contem o chart.js
 gem 'font-awesome-rails'
 gem 'simple_form'
 # gem 'meta-tags' #SEO - rails generate meta_tags:install
