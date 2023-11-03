@@ -1,0 +1,15 @@
+$('#newPorpForm').html("<%= escape_javascript render('form', proponente: @proponente) %>");
+
+$("#proponente_salario").on("blur", function () {
+  var salario = parseFloat($(this).val());
+
+  // Realizar a requisição Ajax para calcular o desconto do INSS
+  $.ajax({
+    type: "GET",
+    url: "<%= calcular_inss_proponentes_path(@proponente) %>",
+    data: { salario: salario },
+    success: function (data) {
+      $("#desconto-inss").text(data.desconto.toFixed(2));
+    },
+  });
+});

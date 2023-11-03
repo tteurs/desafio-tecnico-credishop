@@ -19,7 +19,7 @@ printf "DONE! ======\n\n"
 
 printf '====== Creating proponentes ... '
 # generate 10 proponentes
-10.times do |_proponente|
+100.times do |_proponente|
   Proponente.create!(
     nome: Faker::Name.name,
     cpf: Faker::IDNumber.brazilian_citizen_number,
@@ -32,7 +32,7 @@ printf '====== Creating proponentes ... '
     cep: Faker::Address.zip_code,
     telefone_pessoal: Faker::PhoneNumber.cell_phone,
     telefone_referencia: Faker::PhoneNumber.cell_phone,
-    salario: Faker::Number.decimal(l_digits: 3, r_digits: 2)
+    salario: Faker::Number.between(from: 1000.0, to: 10_000.0).round(2)
   )
 end
 printf "DONE! ======\n\n"

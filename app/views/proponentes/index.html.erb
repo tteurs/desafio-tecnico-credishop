@@ -50,5 +50,21 @@
 
 
 <br>
-<%= link_to 'New Proponente', new_proponente_path %>
-<%= link_to "Relatório de Funcionários", relatorio_funcionarios_proponentes_path %>
+<%= link_to 'Novo Proponente', new_proponente_path, class: "btn btn-primary btn-lg mb-4", data: {bs_toggle: 'modal', bs_target: '#newPorponenteModal', remote: true } %>
+
+<%= link_to "Relatório de Funcionários", relatorio_funcionarios_proponentes_path, class: "btn btn-primary btn-lg mb-4" %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="newPorponenteModal" tabindex="-1" aria-labelledby="newPorponenteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="newPorponenteModalLabel">Adicionar Novo Proponente</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="newPorpForm">
+      </div>
+    </div>
+  </div>
+</div>

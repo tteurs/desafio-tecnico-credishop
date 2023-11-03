@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   resources :proponentes do
     collection do
       get 'relatorio_funcionarios'
+      get 'calcular_inss'
     end
   end
-
-  get '/calcular_inss', to: 'proponentes#calcular_inss'
 end

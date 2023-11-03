@@ -47,7 +47,7 @@ Criar uma aplicação “Desconto INSS” no Rails com os seguintes requisitos:
 
 ## Relatório dos funcionários
 
-  Deve ser criado um relatório para exibir os funcionários agrupando-os por faixas salariais, exibindo quantos funcionários existem em cada faixa salarial, seguindo as faixas:
+ [X] Deve ser criado um relatório para exibir os funcionários agrupando-os por faixas salariais, exibindo quantos funcionários existem em cada faixa salarial, seguindo as faixas:
 
   Até R$ 1.045,00
   De R$ 1.045,01 a R$ 2.089,60
