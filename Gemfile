@@ -41,6 +41,7 @@ gem 'sidekiq-failures'
 gem 'bootstrap', '~> 5.3.2'
 gem 'jquery-rails'
 gem 'bootstrap_views_generator'
+gem 'bootstrap5-kaminari-views'
 gem 'chartkick' # https://chartkick.com/ contem o chart.js
 gem 'font-awesome-rails'
 gem 'simple_form'

@@ -43,9 +43,9 @@
 </table>
 
 <div class="row">
-  <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-    <%= paginate @proponentes %>
-  </div>
+    <%= paginate @proponentes, theme: 'bootstrap-5',
+                   pagination_class: "pagination-sm flex-wrap justify-content-center",
+                   nav_class: "d-inline-block"%>
 </div>
 
 
