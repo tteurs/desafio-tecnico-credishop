@@ -1,13 +1,13 @@
 <%= link_to 'Back', proponentes_path %>
 
-<h1>Relatório de Funcionários</h1>
+<h1>Relatório de Funcionários por Faixa Salarial</h1>
 
 <h2>Gráfico de Funcionários por Faixa Salarial</h2>
 <%= column_chart @funcionarios_por_faixa %>
 
 <h2>Listagem de Funcionários por Faixa Salarial</h2>
 <table class="table table-striped table-hover table-sm">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th>Faixa Salarial</th>
       <th>Quantidade de Funcionários</th>

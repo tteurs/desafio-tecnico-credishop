@@ -21,16 +21,19 @@ Criar uma aplicação “Desconto INSS” no Rails com os seguintes requisitos:
 
 2. Calculo de desconto de INSS
 
-  [ ] No formulário de cadastro do proponente, ao ser informado o valor do salário deve ser feita uma requisição ajax(XHR), que deverá retornar o valor do desconto do INSS. Esse valor deve ser exibido no formulário e registrado no cadastro.
+  [X  ] No formulário de cadastro do proponente, ao ser informado o valor do salário deve ser feita uma requisição ajax(XHR), que deverá retornar o valor do desconto do INSS. Esse valor deve ser exibido no formulário e registrado no cadastro.
 
   Como calcular passo a passo
 
     Tabela para Empregado, Empregado Doméstico e Trabalhador Avulso de 1o de janeiro 2020 a 29 de fevereiro de 2020
 
-    Salário de Contribuição (R$) | Alíquota
-    Até R$ 1.045,00 | 7,5%
-    De R$ 2.089,61 até R$ 3.134,40 | 12%
-    <https://www.inss.gov.br/servicos-do-inss/calculo-da-guia-da-previdencia-social-gps> /tabela-de-contribuicao-mensal/
+    Salário de Contribuição (R$) |	Alíquota progressiva para fins de recolhimento ao INSS
+    Até R$ 1.320,00	7,5%
+    De R$ 1.320,01 a R$ 2.571,29	9%
+    De R$ 2.571,30 até R$ 3.856,94	12%
+    De R$ 3.856,95 até R$ 7.507,49	 14%
+
+    <https://www.inss.gov.br/servicos-do-inss/calculo-da-guia-da-previdencia-social-gps/tabela-de-contribuicao-mensal/>
 
     Com as novas alíquotas e a nova forma de cálculo progressivo, o desconto do INSS deve ser calculado para cada faixa até que se atinja o valor do salário bruto.
     Entre cada parcela, o cálculo é feito considerando o máximo e o mínimo destas e a alíquota a ser aplicada. Enquanto o valor do salário não é atingido, é considerado o teto da faixa salarial.

@@ -28,7 +28,7 @@ class ProponentesController < ApplicationController
     respond_to do |format|
       if @proponente.save
         format.html { redirect_to proponente_url(@proponente), notice: 'Proponente was successfully created.' }
-        format.json { render :show, status: :created, location: @proponente }
+        format.json { render :index, status: :created, location: @proponente }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @proponente.errors, status: :unprocessable_entity }
@@ -67,6 +67,7 @@ class ProponentesController < ApplicationController
       'De R$ 3.134,41 até R$ 6.101,06' => (3134.41..6101.06)
     }
 
+    # adcionar os funcionários por faixa salarial nome e quantidade
     @funcionarios_por_faixa = {}
     @faixas_salariais.each do |faixa, range|
       @funcionarios_por_faixa[faixa] = Proponente.where(salario: range).count
@@ -76,7 +77,7 @@ class ProponentesController < ApplicationController
   def atualizar_salario
     novo_salario = params[:novo_salario].to_f
 
-    SalarioWorker.perform_async(@proponente.id, novo_salario)
+    SalarioWorkerJob.perform_async(@proponente.id, novo_salario)
 
     redirect_to proponentes_path, notice: 'Atualização de salário agendada.'
   end
@@ -91,16 +92,17 @@ class ProponentesController < ApplicationController
   private
 
   def calcular_desconto_inss(salario)
-    # Lógica para calcular o desconto do INSS com base nas faixas de salário
     if salario <= 1045.00
-      desconto = salario * 0.075
+      salario * 0.075
     elsif salario <= 2089.60
-      desconto = (salario - 1045.00) * 0.09 + 78.37
+      (salario - 1045.00) * 0.09 + 78.37
     elsif salario <= 3134.40
-      desconto = (salario - 2089.60) * 0.12 + 78.37 + 94.01
+      (salario - 2089.60) * 0.12 + 78.37 + 94.01
+    elsif salario <= 6101.06
+      (salario - 3134.40) * 0.14 + 78.37 + 94.01 + 125.38
+    else
+      78.37 + 94.01 + 125.38 + 415.33
     end
-
-    desconto
   end
 
   # Use callbacks to share common setup or constraints between actions.
