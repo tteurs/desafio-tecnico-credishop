@@ -1,6 +1,6 @@
 <%= simple_form_for(@proponente, remote: true) do |f| %>
   <div class="modal-body">
-    <%= errors_for(@proponente) %>
+    <div id=errorsShow></div>
 
 
     <div class="form-inputs">
@@ -21,7 +21,7 @@
     <p>Desconto INSS: <span id="desconto-inss"><%= @proponente.desconto_inss %></span></p>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
         <div class="form-actions">
           <%= f.button :submit, class: 'btn btn-primary' %>
         </div>

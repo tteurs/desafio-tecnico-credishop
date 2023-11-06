@@ -29,9 +29,11 @@ class ProponentesController < ApplicationController
       if @proponente.save
         format.html { redirect_to proponentes_url, notice: 'Proponente was successfully created.' }
         format.json { render :index, status: :created, location: @proponente }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @proponente.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -42,9 +44,11 @@ class ProponentesController < ApplicationController
       if @proponente.update(proponente_params)
         format.html { redirect_to proponentes_url, notice: 'Proponente was successfully updated.' }
         format.json { render :show, status: :ok, location: @proponente }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @proponente.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
