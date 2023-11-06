@@ -1,9 +1,7 @@
-<%= link_to 'Back', proponentes_path %>
-
-<h1>Relatório de Funcionários por Faixa Salarial</h1>
-
 <h2>Gráfico de Funcionários por Faixa Salarial</h2>
-<%= column_chart @funcionarios_por_faixa %>
+<div class=card-img-top>
+  <%= column_chart @funcionarios_por_faixa %>
+</div>
 
 <h2>Listagem de Funcionários por Faixa Salarial</h2>
 <table class="table table-striped table-hover table-sm">
@@ -11,14 +9,17 @@
     <tr>
       <th>Faixa Salarial</th>
       <th>Quantidade de Funcionários</th>
+      <th>Nome dos Funcionários</th>
     </tr>
   </thead>
   <tbody>
-    <% @funcionarios_por_faixa.each do |faixa, quantidade| %>
+    <% @funcionarios_por_faixa.each do |faixa ,quantidade| %>
       <tr>
         <td><%= faixa %></td>
-        <td><%= quantidade %></td>
+        <td><%= quantidade[0] %></td>
+        <td><%= quantidade[1].join(', ') %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+

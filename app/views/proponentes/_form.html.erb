@@ -16,9 +16,9 @@
       <%= f.input :telefone_pessoal %>
       <%= f.input :telefone_referencia %>
       <%= f.input :salario %>
-      <%= f.input :desconto_inss, disabled: true %>
+      <%= f.hidden_field :desconto_inss %>
     </div>
-
+    <p>Desconto INSS: <span id="desconto-inss"><%= @proponente.desconto_inss %></span></p>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

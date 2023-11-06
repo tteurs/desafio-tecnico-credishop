@@ -10,6 +10,15 @@ $("#proponente_salario").on("blur", function () {
     data: { salario: salario },
     success: function (data) {
       $("#proponente_desconto_inss").val(data.desconto.toFixed(2));
+      $("#desconto-inss").text(data.desconto.toFixed(2));
     },
   });
 });
+
+//remove old validation messages
+$(".notice").remove();
+
+//display new validation messages
+<% @proponente.errors.full_messages.each do |message| %>
+$(“#helpBlock”).append(‘<div class=”notice”><%= escape_javascript(message)%></div>’);
+<% end %>

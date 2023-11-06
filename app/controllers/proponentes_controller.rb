@@ -27,7 +27,7 @@ class ProponentesController < ApplicationController
 
     respond_to do |format|
       if @proponente.save
-        format.html { redirect_to proponente_url(@proponente), notice: 'Proponente was successfully created.' }
+        format.html { redirect_to proponentes_url, notice: 'Proponente was successfully created.' }
         format.json { render :index, status: :created, location: @proponente }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class ProponentesController < ApplicationController
   def update
     respond_to do |format|
       if @proponente.update(proponente_params)
-        format.html { redirect_to proponente_url(@proponente), notice: 'Proponente was successfully updated.' }
+        format.html { redirect_to proponentes_url, notice: 'Proponente was successfully updated.' }
         format.json { render :show, status: :ok, location: @proponente }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -70,7 +70,8 @@ class ProponentesController < ApplicationController
     # adcionar os funcionários por faixa salarial nome e quantidade
     @funcionarios_por_faixa = {}
     @faixas_salariais.each do |faixa, range|
-      @funcionarios_por_faixa[faixa] = Proponente.where(salario: range).count
+      @funcionarios_por_faixa[faixa] =
+        [Proponente.where(salario: range).count, Proponente.where(salario: range).pluck(:nome)]
     end
   end
 
@@ -113,6 +114,6 @@ class ProponentesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def proponente_params
     params.require(:proponente).permit(:nome, :cpf, :data_nascimento, :logradouro, :numero, :bairro, :cidade,
-                                       :estado, :cep, :telefone_pessoal, :telefone_referencia, :salario)
+                                       :estado, :cep, :telefone_pessoal, :telefone_referencia, :salario, :desconto_inss)
   end
 end

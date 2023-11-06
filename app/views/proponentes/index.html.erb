@@ -34,9 +34,8 @@
         <td><%= proponente.telefone_pessoal %></td>
         <td><%= proponente.telefone_referencia %></td>
         <td><%= proponente.salario %></td>
-        <td><%= link_to 'Show', proponente %></td>
-        <td><%= link_to 'Edit', edit_proponente_path(proponente) %></td>
-        <td><%= link_to 'Destroy', proponente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_proponente_path(proponente), data: {bs_toggle: 'modal', bs_target: '#newPorponenteModal', remote: true } %></td>
+        <td><%= link_to 'Deletar', proponente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -52,18 +51,32 @@
 <br>
 <%= link_to 'Novo Proponente', new_proponente_path, class: "btn btn-primary btn-lg mb-4", data: {bs_toggle: 'modal', bs_target: '#newPorponenteModal', remote: true } %>
 
-<%= link_to "Relatório de Funcionários", relatorio_funcionarios_proponentes_path, class: "btn btn-primary btn-lg mb-4" %>
+<%= link_to "Relatório de Funcionários", relatorio_funcionarios_proponentes_path, class: "btn btn-primary btn-lg mb-4", data: {bs_toggle: 'modal', bs_target: '#reportModal', remote: true } %>
 
 
 <!-- Modal -->
 <div class="modal fade" id="newPorponenteModal" tabindex="-1" aria-labelledby="newPorponenteModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="newPorponenteModalLabel">Adicionar Novo Proponente</h1>
+        <h1 class="modal-title fs-5" id="newPorponenteModalLabel">Proponente</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div id="newPorpForm">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Report-->
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="reportModalLabel">Relatório de Funcionários por Faixa Salarial</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="report">
       </div>
     </div>
   </div>
