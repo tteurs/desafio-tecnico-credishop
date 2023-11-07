@@ -60,6 +60,7 @@ class ProponentesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to proponentes_url, notice: 'Proponente was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
