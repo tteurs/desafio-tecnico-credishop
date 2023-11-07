@@ -15,14 +15,16 @@ class Proponente < ApplicationRecord
 
   paginates_per 5
   def calcular_desconto_inss
-    salario_contribuicao = salario
-
-    desconto = if salario_contribuicao <= 1045
-                 salario_contribuicao * 0.075
-               elsif salario_contribuicao <= 2089.6
-                 (1045 * 0.075) + ((salario_contribuicao - 1045) * 0.09)
+    desconto = if salario <= 1045.00
+                 salario * 0.075
+               elsif salario <= 2089.60
+                 (1045 * 0.075) + ((salario - 1045) * 0.09)
+               elsif salario <= 3134.40
+                 (1045 * 0.075) + (1044.60 * 0.09) + ((salario - 2089.60) * 0.12)
+               elsif salario <= 6101.06
+                 (1045 * 0.075) + (1044.60 * 0.09) + (1044.80 * 0.12) + ((salario - 3134.40) * 0.14)
                else
-                 (1045 * 0.075) + ((2089.6 - 1045) * 0.09) + ((salario_contribuicao - 2089.6) * 0.12)
+                 (1045 * 0.075) + (1044.60 * 0.09) + (1044.80 * 0.12) + (2966.66 * 0.14)
                end
 
     update(desconto_inss: desconto)
