@@ -32,7 +32,8 @@ printf '====== Creating proponentes ... '
     cep: Faker::Address.zip_code,
     telefone_pessoal: Faker::PhoneNumber.cell_phone,
     telefone_referencia: Faker::PhoneNumber.cell_phone,
-    salario: Faker::Number.between(from: 1000.0, to: 10_000.0).round(2)
+    salario: Faker::Number.between(from: 1000.0, to: 10_000.0).round(2),
+    desconto_inss: 0
   )
 end
 printf "DONE! ======\n\n"
