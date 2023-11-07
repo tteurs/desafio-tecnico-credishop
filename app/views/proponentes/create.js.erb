@@ -2,5 +2,5 @@
   $("#errorsShow").html("<%= escape_javascript render('errors', proponente: @proponente)%>");
 <% else %>
   $("#proponentesTable").prepend("<%= escape_javascript render('proponente_row', proponente: @proponente)%>");
-  $(".close-modal"). click();
+  $(".close-modal").click();
 <% end %>

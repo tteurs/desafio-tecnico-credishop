@@ -1,6 +1,6 @@
 <% if @proponente.errors.any? %>
   $("#errorsShow").html("<%= escape_javascript render('errors', proponente: @proponente)%>");
 <% else %>
-  $("#proponenteRow_<%= @proponente.id %>").replacewith("<=% escape_javascript render('proponente_row', proponente: @proponente) %>");
-  $(".close-modal"). click();
+  $("#proponenteRow_<%= @proponente.id %>").replaceWith("<%= escape_javascript render('proponente_row', proponente: @proponente)%>");
+  $(".close-modal").click();
 <% end %>

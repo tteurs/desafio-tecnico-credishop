@@ -88,8 +88,8 @@ class ProponentesController < ApplicationController
     redirect_to proponentes_path, notice: 'Atualização de salário agendada.'
   end
 
-  def calcular_inss
-    salario = params[:salario].to_f
+  def calcular_inss(salario = nil)
+    salario ||= params[:salario].to_f
     desconto_inss = calcular_desconto_inss(salario)
 
     render json: { desconto: desconto_inss }
