@@ -5,7 +5,7 @@ RSpec.describe Proponente, type: :model do
     it { should validate_presence_of(:nome) }
     it { should validate_presence_of(:cpf) }
     it { should validate_presence_of(:salario) }
-    it { should validate_uniqueness_of(:cpf) }
+    it { should validate_uniqueness_of(:cpf).case_insensitive }
     it { should validate_numericality_of(:salario).is_greater_than(0) }
 
     it 'should validate cpf format' do
