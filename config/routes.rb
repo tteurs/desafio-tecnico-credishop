@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :proponentes do
     collection do
-      get 'relatorio_funcionarios'
-      get 'calcular_inss'
+      get 'relatorio_funcionarios', action: :relatorio_funcionarios
+      get 'calcular_inss', action: :calcular_inss
     end
   end
+
+  post 'proponente_atualizar_salario/:id', to: 'proponentes#atualizar_salario'
 end
