@@ -62,12 +62,12 @@ Criar uma aplicação “Desconto INSS” no Rails com os seguintes requisitos:
 ## Observações
 
 [X] Iniciar com pelo menos 10 registros (seed);
-[ ] Atualizar salário do funcionário usando mensagens/jobs (redis/sidekiq);
+[?] Atualizar salário do funcionário usando mensagens/jobs (redis/sidekiq);
 [X] Ao final da programação, utilizar o rubocop-rails e padronizar o seu projeto de acordo com as boas práticas de programação rails.
 
 ## Sugestões
 
-[ ] Abordagem TDD (escreva testes, disse o mestre!);
+[X] Abordagem TDD (escreva testes, disse o mestre!);
 [X] Dockerização (portátil é bom);
 [X] Autenticação (desejável).
 
@@ -86,26 +86,39 @@ Criar uma aplicação “Desconto INSS” no Rails com os seguintes requisitos:
 ● Redis;
 ● Sidekiq
 
-### Configuration
+  ### Configuration
 
-$ bundle install
+  #### running on docker
 
-### Database creation
+    $ docker-compose up -d
 
-you shoul have postgresql installed
+    ### Running tests on docker
 
-### Database initialization
+    $ docker-compose run -e "RAILS_ENV=test" web rails db:create db:migrate
 
-$ bundle exec rake db:setup && bundle exec rake db:seed
+    $ docker-compose run --rm -e "RAILS_ENV=test" web bundle exec rspec spec
 
-### How to run the test suite
+docker-compose \
+  -f docker-compose.yml \
+  -f docker-compose.test.yml \
+  run --rm web bundle exec rspec spec/models/post_spec.rb
 
-$ bundle exec rspec spec
+  #### Running locally
 
-### Services (job queues, cache servers, search engines, etc.)
+    $ bundle install
 
-$ bundle exec sidekiq start
+    ### Database creation
 
-### running on docker
+    you shoul have postgresql installed
 
-$ docker-compose up -d
+    ### Database initialization
+
+    $ bundle exec rake db:setup && bundle exec rake db:seed
+
+    ### How to run the test suite
+
+    $ bundle exec rspec spec
+
+    ### Services (job queues, cache servers, search engines, etc.)
+
+    $ bundle exec sidekiq start
