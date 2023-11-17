@@ -90,18 +90,26 @@ Criar uma aplicação “Desconto INSS” no Rails com os seguintes requisitos:
 
   #### running on docker
 
-    $ docker-compose up -d
+    ### build container
+
+      $ docker-compose up -d
+
+    ### Database initialization
+
+      $ docker-compose run --rm web bin/rails db:create db:migrate db:seed
 
     ### Running tests on docker
 
-    $ docker-compose run -e "RAILS_ENV=test" web rails db:create db:migrate
+      $ docker-compose run --rm -e "RAILS_ENV=test" web rails db:create db:migrate
 
-    $ docker-compose run --rm -e "RAILS_ENV=test" web bundle exec rspec spec
+      $ docker-compose run --rm -e "RAILS_ENV=test" web bundle exec rspec spec
 
-docker-compose \
-  -f docker-compose.yml \
-  -f docker-compose.test.yml \
-  run --rm web bundle exec rspec spec/models/post_spec.rb
+    ### or
+
+    $ docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.test.yml \
+      run --rm web bundle exec rspec spec/models/post_spec.rb
 
   #### Running locally
 
