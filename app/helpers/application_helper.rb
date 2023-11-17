@@ -13,7 +13,7 @@ module ApplicationHelper
 
       concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)}", role: 'alert') do
         concat message
-        concat content_tag(:link, 'x', class: 'close', data: { dismiss: 'alert' })
+        # concat content_tag(:button, 'x', class: 'close', data: { turbo: 'false' })
       end)
     end
     nil
